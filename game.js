@@ -37,6 +37,7 @@ window.onload = function() {
 }
 
 function audiomute() {
+	console.log("test")
 	if (backgroundAudioMuted = false) {
 		backgroundAudioMuted = true;
 		backgroundAudio.volume=0.0;
