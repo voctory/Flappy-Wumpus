@@ -26,6 +26,8 @@ game.obstacle_frequency = 50;
 
 // binding
 game.keybind(32, 'up');
+game.keybind(77, 'down');
+game.keybind(109, 'down');
 
 // audio stuff
 var backgroundAudioMuted = false;
@@ -37,14 +39,15 @@ window.onload = function() {
 }
 
 function audiomute() {
-	console.log("test")
-	if (backgroundAudioMuted == false) {
-		backgroundAudioMuted = true;
-		backgroundAudio.volume=0.0;
-	}
-	else {
-		backgroundAudioMuted = false;
-		backgroundAudio.volume=0.3;
+	if (game.started != true && gameEnded != true) {
+		if (backgroundAudioMuted == false) {
+			backgroundAudioMuted = true;
+			backgroundAudio.volume=0.0;
+		}
+		else {
+			backgroundAudioMuted = false;
+			backgroundAudio.volume=0.3;
+		}
 	}
 }
 
@@ -71,7 +74,7 @@ game.preload('../assets/halloween/background.png',
 	'../assets/gameover.png',
 	'../assets/halloween/getready.png',
 	'../assets/ground.png',
-	'../assets/instructions.png',
+	'../assets/new-instructions.png',
 	'../assets/mallorySoftSoap.png',
 	'../assets/obstacle_top.png',
 	'../assets/obstacle_bottom.png',
@@ -88,15 +91,13 @@ game.preload('../assets/halloween/background.png',
 // initialize game
 function gameinit() {
 	
-	game.keyunbind(77);
-	game.keyunbind(109);
-	
 	game.rootScene.addChild(game.ground);
 	scoreBoard.text = 0;
 	game.rootScene.removeChild(game.playbutton);
 	game.rootScene.removeChild(game.flappylogo);
 	game.rootScene.clearEventListener(enchant.Event.LEFT_BUTTON_DOWN);
 	game.rootScene.clearEventListener(enchant.Event.UP_BUTTON_DOWN);
+	game.rootScene.clearEventListener(enchant.Event.DOWN_BUTTON_DOWN);
 	// add the background
 
 	// adds background back
@@ -159,10 +160,10 @@ function gameinit() {
 	game.rootScene.addChild(game.avatar);
 
   // add the instructions
-  game.instructions = new Sprite(475,22);
-  game.instructions.image = game.assets['../assets/instructions.png'];
+  game.instructions = new Sprite(695,95);
+  game.instructions.image = game.assets['../assets/new-instructions.png'];
   game.instructions.x = (game.width/2) - (game.instructions.width/2);
-  game.instructions.y = 460;
+  game.instructions.y = 555;
 	game.instructions.buttonMode = "up";
 
 	game.bg.buttonMode = "up";
@@ -184,10 +185,7 @@ function clearobstacles() {
 }
 
 function gamerestart() {
-	
-	game.keyunbind(77);
-	game.keyunbind(109);
-	
+
 	// clearing sprites up
 
 	game.rootScene.removeChild(game.bg);
@@ -267,10 +265,10 @@ function gamerestart() {
   // add game.avatar to rootScene
 	game.rootScene.addChild(game.avatar);
 
-	game.instructions = new Sprite(475,22);
-  game.instructions.image = game.assets['../assets/instructions.png'];
+	game.instructions = new Sprite(695,95);
+  game.instructions.image = game.assets['../assets/new-instructions.png'];
   game.instructions.x = (game.width/2) - (game.instructions.width/2);
-  game.instructions.y = 460;
+  game.instructions.y = 555;
 	game.instructions.buttonMode = "up"
 	game.rootScene.removeChild(scoreBoard)
 	game.rootScene.addChild(scoreBoard)
@@ -282,8 +280,6 @@ function gamerestart() {
 }
 
 function openmenu() {
-	game.keybind(77, 'down');
-	game.keybind(109, 'down');
 	game.rootScene.removeChild(game.playbutton);
 	game.rootScene.removeChild(game.flappylogo);
 	game.rootScene.removeChild(game.retrybutton);
@@ -349,8 +345,6 @@ function logoTimer() {
 }
 
 game.onload = function(){
-	game.keybind(77, 'down');
-	game.keybind(109, 'down');
 	game.bg = new Sprite(1280,720);
   game.bg.image = game.assets['../assets/halloween/background.png'];
 
@@ -518,6 +512,8 @@ function spawnObstacle(){
 } // end spawnObstacle
 
 function gameover(){
+	
+	game.rootScene.clearEventListener(enchant.Event.DOWN_BUTTON_DOWN);
 	
   // add the instructions
 	game.bg.buttonMode = "";
