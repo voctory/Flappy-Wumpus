@@ -8,6 +8,8 @@
 ┗-----------------------------------------------┛
 */
 
+
+
 enchant(); // initialize
 var game = new Core(1280, 720); // game stage
 game.scale = 1;
@@ -24,6 +26,27 @@ game.obstacle_frequency = 50;
 
 // binding
 game.keybind(32, 'up');
+
+// audio stuff
+var backgroundAudioMuted = false;
+var backgroundAudio=document.getElementById("bgAudio");
+
+window.onload = function() {
+    backgroundAudio.volume=0.5;
+}
+
+function audiomute() {
+	if (backgroundAudioMuted = false) {
+		backgroundAudioMuted = true;
+		backgroundAudio.volume=0.0;
+	}
+	else {
+		backgroundAudioMuted = false;
+		backgroundAudio.volume=0.5;
+	}
+}
+
+// other stuff
 
 var obstacles = new Group();
 
@@ -351,6 +374,7 @@ game.onload = function(){
 	logoTimer()
 
 	game.rootScene.addEventListener(enchant.Event.LEFT_BUTTON_DOWN, gameinit);
+	game.rootScene.addEventListener(enchant.Event.DOWN_BUTTON_DOWN, audiomute);
 	
 	// currently disabled
 	
