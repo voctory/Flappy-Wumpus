@@ -513,6 +513,8 @@ function spawnObstacle(){
 
 function gameover(){
 	
+	game.rootScene.clearEventListener(enchant.Event.DOWN_BUTTON_DOWN);
+	
   // add the instructions
 	game.bg.buttonMode = "";
   gameEnded = true;
