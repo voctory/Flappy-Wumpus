@@ -37,14 +37,15 @@ window.onload = function() {
 }
 
 function audiomute() {
-	console.log("test")
-	if (backgroundAudioMuted == false) {
-		backgroundAudioMuted = true;
-		backgroundAudio.volume=0.0;
-	}
-	else {
-		backgroundAudioMuted = false;
-		backgroundAudio.volume=0.3;
+	if (game.started != true && gameEnded != true) {
+		if (backgroundAudioMuted == false) {
+			backgroundAudioMuted = true;
+			backgroundAudio.volume=0.0;
+		}
+		else {
+			backgroundAudioMuted = false;
+			backgroundAudio.volume=0.3;
+		}
 	}
 }
 
