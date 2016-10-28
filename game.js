@@ -87,7 +87,10 @@ game.preload('../assets/halloween/background.png',
 
 // initialize game
 function gameinit() {
-	console.log("hi")
+	
+	game.keyunbind(77);
+	game.keyunbind(109);
+	
 	game.rootScene.addChild(game.ground);
 	scoreBoard.text = 0;
 	game.rootScene.removeChild(game.playbutton);
@@ -181,7 +184,10 @@ function clearobstacles() {
 }
 
 function gamerestart() {
-
+	
+	game.keyunbind(77);
+	game.keyunbind(109);
+	
 	// clearing sprites up
 
 	game.rootScene.removeChild(game.bg);
@@ -276,6 +282,8 @@ function gamerestart() {
 }
 
 function openmenu() {
+	game.keybind(77, 'down');
+	game.keybind(109, 'down');
 	game.rootScene.removeChild(game.playbutton);
 	game.rootScene.removeChild(game.flappylogo);
 	game.rootScene.removeChild(game.retrybutton);
@@ -340,6 +348,8 @@ function logoTimer() {
 }
 
 game.onload = function(){
+	game.keybind(77, 'down');
+	game.keybind(109, 'down');
 	game.bg = new Sprite(1280,720);
   game.bg.image = game.assets['../assets/halloween/background.png'];
 
