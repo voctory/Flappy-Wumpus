@@ -29,9 +29,10 @@ game.keybind(32, 'up');
 
 // audio stuff
 var backgroundAudioMuted = false;
-var backgroundAudio=document.getElementById("bgAudio");
+var backgroundAudio = false;
 
 window.onload = function() {
+		backgroundAudio=document.getElementById("bgAudio");
     backgroundAudio.volume=0.5;
 }
 
@@ -46,7 +47,7 @@ function audiomute() {
 	}
 }
 
-// other stuff
+// other stuff	
 
 var obstacles = new Group();
 
