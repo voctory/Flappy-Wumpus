@@ -33,7 +33,7 @@ var backgroundAudio=false;
 
 window.onload = function() {
 		backgroundAudio=document.getElementById("bg-audio");
-    backgroundAudio.volume=0.5;
+    backgroundAudio.volume=0.3;
 }
 
 function audiomute() {
@@ -44,7 +44,7 @@ function audiomute() {
 	}
 	else {
 		backgroundAudioMuted = false;
-		backgroundAudio.volume=0.5;
+		backgroundAudio.volume=0.3;
 	}
 }
 
