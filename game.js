@@ -29,10 +29,9 @@ game.keybind(32, 'up');
 
 // audio stuff
 var backgroundAudioMuted = false;
-var backgroundAudio = false;
+var backgroundAudio=document.getElementById("bg-audio");
 
 window.onload = function() {
-		backgroundAudio=document.getElementById("bgAudio");
     backgroundAudio.volume=0.5;
 }
 
