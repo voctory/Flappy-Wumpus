@@ -186,8 +186,6 @@ function clearobstacles() {
 
 function gamerestart() {
 
-	console.log("i")
-	
 	// clearing sprites up
 
 	game.rootScene.removeChild(game.bg);
