@@ -37,6 +37,10 @@ body{
     overflow-x: hidden;
 }
 
+#bg-audio {
+    
+}
+
 div#game-container {
     margin: 30px 0 auto;
     text-align: center;
