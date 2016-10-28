@@ -351,7 +351,7 @@ game.onload = function(){
 	logoTimer()
 
 	game.rootScene.addEventListener(enchant.Event.LEFT_BUTTON_DOWN, gameinit);
-	game.rootScene.addEventListener(enchant.Event.A_BUTTON_DOWN, buttonlog);
+	game.rootScene.addEventListener(enchant.Event.B_BUTTON_DOWN, buttonlog);
 	
 	// currently disabled
 	
