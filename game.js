@@ -8,6 +8,13 @@
 ┗-----------------------------------------------┛
 */
 
+$(document).ready(function(){
+	backgroundAudio=new Audio('sounds/FlappilyWumped.mp3');
+	backgroundAudio.autoplay = true;
+	backgroundAudio.loop = true;
+	backgroundAudio.volume=0.5;
+})
+
 enchant(); // initialize
 var game = new Core(1280, 720); // game stage
 game.scale = 1;
@@ -23,7 +30,7 @@ game.fly_speed = 3.5;
 game.obstacle_frequency = 50;
 
 // bg music
-var backgroundAudio=new Audio('sounds/FlappilyWumped.mp3');
+var backgroundAudio = false;
 var backgroundMuted = false;
 backgroundAudio.autoplay = true;
 backgroundAudio.loop = true;
