@@ -85,7 +85,9 @@ game.preload('../assets/halloween/background.png',
 	'../assets/back2menu.png',
 	'../assets/play.png',
 	'../assets/flappywumpuslogo2.png',
-	'../assets/retry.png');
+	'../assets/retry.png',
+	'../assets/soundbutton.png',
+	'../assets/soundbuttonmuted.png');
 
 
 // initialize game
@@ -359,6 +361,16 @@ game.onload = function(){
 
   // add game.ground to rootScene
 	game.rootScene.addChild(game.ground);
+	
+	// adding mute button
+	
+	game.mutebutton = new Sprite(100,100);
+	game.playbutton.image = game.assets['../assets/soundbutton.png'];
+	//game.playbutton.y = game.height/2 + 50;
+	//game.playbutton.x = game.width/2 - 150;
+	game.playbutton.buttonMode = "down"
+
+	game.rootScene.addChild(game.playbutton);
 
 	// adding playbutton stuff
 
