@@ -40,7 +40,7 @@ function audiomute() {
 	console.log("test")
 	if (backgroundAudioMuted = false) {
 		backgroundAudioMuted = true;
-		backgroundAudio.volume=0;
+		backgroundAudio.volume=0.1;
 	}
 	else {
 		backgroundAudioMuted = false;
