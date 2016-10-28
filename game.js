@@ -377,11 +377,11 @@ game.onload = function(){
 function muteaudio() {
 	if (backgroundMuted = false) {
 		backgroundMuted = true;
-		backgroundMusic.volume = 0
+		backgroundAudio.volume = 0
 	}
 	else {
 		backgroundMuted = false;
-		backgroundMusic.volume = 0.5
+		backgroundAudio.volume = 0.5
 	}
 }
 
