@@ -26,6 +26,8 @@ game.obstacle_frequency = 50;
 
 // binding
 game.keybind(32, 'up');
+game.keybind(77, 'down');
+game.keybind(109, 'down');
 
 // audio stuff
 var backgroundAudioMuted = false;
@@ -88,9 +90,6 @@ game.preload('../assets/halloween/background.png',
 
 // initialize game
 function gameinit() {
-	
-	game.keyunbind(77);
-	game.keyunbind(109);
 	
 	game.rootScene.addChild(game.ground);
 	scoreBoard.text = 0;
@@ -186,10 +185,7 @@ function clearobstacles() {
 }
 
 function gamerestart() {
-	
-	game.keyunbind(77);
-	game.keyunbind(109);
-	
+
 	// clearing sprites up
 
 	game.rootScene.removeChild(game.bg);
@@ -284,8 +280,6 @@ function gamerestart() {
 }
 
 function openmenu() {
-	game.keybind(77, 'down');
-	game.keybind(109, 'down');
 	game.rootScene.removeChild(game.playbutton);
 	game.rootScene.removeChild(game.flappylogo);
 	game.rootScene.removeChild(game.retrybutton);
@@ -351,8 +345,6 @@ function logoTimer() {
 }
 
 game.onload = function(){
-	game.keybind(77, 'down');
-	game.keybind(109, 'down');
 	game.bg = new Sprite(1280,720);
   game.bg.image = game.assets['../assets/halloween/background.png'];
 
