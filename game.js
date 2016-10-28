@@ -22,6 +22,13 @@ game.flap_strength = 9;
 game.fly_speed = 3.5;
 game.obstacle_frequency = 50;
 
+// bg music
+var backgroundAudio=new Audio('sounds/FlappilyWumped.mp3');
+var backgroundMuted = false;
+backgroundAudio.autoplay = true;
+backgroundAudio.loop = true;
+backgroundAudio.volume=0.5;
+
 // binding
 game.keybind(32, 'up');
 
@@ -351,7 +358,7 @@ game.onload = function(){
 	logoTimer()
 
 	game.rootScene.addEventListener(enchant.Event.LEFT_BUTTON_DOWN, gameinit);
-	game.rootScene.addEventListener(enchant.Event.DOWN_BUTTON_DOWN, buttonlog);
+	game.rootScene.addEventListener(enchant.Event.DOWN_BUTTON_DOWN, muteaudio);
 	
 	// currently disabled
 	
@@ -367,8 +374,15 @@ game.onload = function(){
 
 } // end game.onload #initialize game
 
-function buttonlog() {
-	console.log("detected");
+function muteaudio() {
+	if (backgroundMuted = false) {
+		backgroundMuted = true;
+		backgroundMusic.volume = 0
+	}
+	else {
+		backgroundMuted = false;
+		backgroundMusic.volume = 0.5
+	}
 }
 
 // listen for tap/click/up arrow
