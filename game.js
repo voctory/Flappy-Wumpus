@@ -97,6 +97,7 @@ function gameinit() {
 	game.rootScene.removeChild(game.flappylogo);
 	game.rootScene.clearEventListener(enchant.Event.LEFT_BUTTON_DOWN);
 	game.rootScene.clearEventListener(enchant.Event.UP_BUTTON_DOWN);
+	game.rootScene.clearEventListener(enchant.Event.DOWN_BUTTON_DOWN);
 	// add the background
 
 	// adds background back
