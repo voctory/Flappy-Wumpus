@@ -69,6 +69,7 @@ game.preload('../assets/halloween/background.png',
 
 // initialize game
 function gameinit() {
+	console.log("hi")
 	game.rootScene.addChild(game.ground);
 	scoreBoard.text = 0;
 	game.rootScene.removeChild(game.playbutton);
@@ -376,12 +377,10 @@ game.onload = function(){
 function muteaudio() {
 	if (backgroundMuted = false) {
 		backgroundMuted = true;
-		console.log("on")
-		backgroundAudio.volume = 0.1
+		backgroundAudio.volume = 0
 	}
 	else {
 		backgroundMuted = false;
-		console.log("off")
 		backgroundAudio.volume = 0.5
 	}
 }
