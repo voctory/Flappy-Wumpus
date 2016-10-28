@@ -371,8 +371,8 @@ game.onload = function(){
 	
 	game.mutebutton = new Sprite(100,100);
 	game.mutebutton.image = game.assets['../assets/soundbutton.png'];
-	game.mutebutton.y = 50;
-	game.mutebutton.x = 50;
+	game.mutebutton.y = 20;
+	game.mutebutton.x = 20;
 	game.mutebutton.buttonMode = "down"
 
 	game.rootScene.addChild(game.mutebutton);
