@@ -365,12 +365,12 @@ game.onload = function(){
 	// adding mute button
 	
 	game.mutebutton = new Sprite(100,100);
-	game.playbutton.image = game.assets['../assets/soundbutton.png'];
+	game.mutebutton.image = game.assets['../assets/soundbutton.png'];
 	//game.playbutton.y = game.height/2 + 50;
 	//game.playbutton.x = game.width/2 - 150;
-	game.playbutton.buttonMode = "down"
+	game.mutebutton.buttonMode = "down"
 
-	game.rootScene.addChild(game.playbutton);
+	game.rootScene.addChild(game.mutebutton);
 
 	// adding playbutton stuff
 
