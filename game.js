@@ -315,6 +315,7 @@ function openmenu() {
 	game.rootScene.addChild(game.flappylogo);
 
 	game.rootScene.addEventListener(enchant.Event.LEFT_BUTTON_DOWN, gamerestart);
+	game.rootScene.addEventListener(enchant.Event.DOWN_BUTTON_DOWN, audiomute);
 	
 	// currently disabled
 	
