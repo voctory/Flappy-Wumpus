@@ -43,10 +43,12 @@ function audiomute() {
 		if (backgroundAudioMuted == false) {
 			backgroundAudioMuted = true;
 			backgroundAudio.volume=0.0;
+			game.mutebutton.image = game.assets['../assets/soundbuttonmuted.png'];
 		}
 		else {
 			backgroundAudioMuted = false;
 			backgroundAudio.volume=0.3;
+			game.mutebutton.image = game.assets['../assets/soundbutton.png'];
 		}
 	}
 }
@@ -85,7 +87,9 @@ game.preload('../assets/halloween/background.png',
 	'../assets/back2menu.png',
 	'../assets/play.png',
 	'../assets/flappywumpuslogo2.png',
-	'../assets/retry.png');
+	'../assets/retry.png',
+	'../assets/soundbutton.png',
+	'../assets/soundbuttonmuted.png');
 
 
 // initialize game
@@ -95,6 +99,7 @@ function gameinit() {
 	scoreBoard.text = 0;
 	game.rootScene.removeChild(game.playbutton);
 	game.rootScene.removeChild(game.flappylogo);
+	game.rootScene.removeChild(game.mutebutton);
 	game.rootScene.clearEventListener(enchant.Event.LEFT_BUTTON_DOWN);
 	game.rootScene.clearEventListener(enchant.Event.UP_BUTTON_DOWN);
 	game.rootScene.clearEventListener(enchant.Event.DOWN_BUTTON_DOWN);
@@ -194,6 +199,7 @@ function gamerestart() {
 	game.rootScene.removeChild(game.ground);
 	game.rootScene.removeChild(game.retrybutton);
 	game.rootScene.removeChild(game.menubutton);
+	game.rootScene.removeChild(game.mutebutton);
 	game.rootScene.clearEventListener(enchant.Event.DOWN_BUTTON_DOWN);
 	game.rootScene.clearEventListener(enchant.Event.RIGHT_BUTTON_DOWN);
 	game.rootScene.clearEventListener(enchant.Event.LEFT_BUTTON_DOWN);
@@ -300,6 +306,7 @@ function openmenu() {
 	game.playbutton.buttonMode = "left";
 
 	game.rootScene.addChild(game.playbutton);
+	game.rootScene.addChild(game.mutebutton);
 
 	// adding the logo
 
@@ -359,6 +366,16 @@ game.onload = function(){
 
   // add game.ground to rootScene
 	game.rootScene.addChild(game.ground);
+	
+	// adding mute button
+	
+	game.mutebutton = new Sprite(100,100);
+	game.mutebutton.image = game.assets['../assets/soundbutton.png'];
+	game.mutebutton.y = 20;
+	game.mutebutton.x = 20;
+	game.mutebutton.buttonMode = "down"
+
+	game.rootScene.addChild(game.mutebutton);
 
 	// adding playbutton stuff
 
